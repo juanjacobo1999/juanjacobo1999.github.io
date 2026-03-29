@@ -1,2 +1,255 @@
-<h1>Sitio de Juan Jacobo</h1>
-<p>App Apunte de Domino</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apunte de Domino - ¡Lleva tus puntos fácil!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @media (max-width: 768px) {
+        h1 { font-size: 1.8rem; }
+        .hero-text { font-size: 1rem; padding: 0 10px; }
+        .logo-main { width: 100px; }
+        
+        .screenshot-container {
+            gap: 15px;
+            padding-left: 20px;
+        }
+        .screenshot-container img { 
+            height: 350px; /* Tamaño más cómodo para celular */
+        }
+        
+        header { padding: 40px 10px; }
+        
+        .features {
+            margin-top: 20px;
+            grid-template-columns: 1fr; /* Una columna en móvil */
+        }
+    }
+        :root {
+            --app-bg-dark: #121212;       /* Fondo más oscuro de tu app */
+            --app-card-bg: #1e1e1e;       /* Gris de las tarjetas */
+            --app-accent-red: #ff5252;    /* El rojo que usas para anular puntos */
+            --app-grey-text: #a0a0a0;     /* Gris para textos secundarios */
+            --app-button-grey: #3d3d3d;   /* Gris de los botones de la interfaz */
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: var(--app-bg-dark);
+            color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #252525 0%, #121212 100%);
+            border-bottom: 2px solid var(--app-button-grey);
+        }
+
+        .logo-main {
+            width: 140px;
+            border-radius: 28px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            margin-bottom: 25px;
+            border: 1px solid #444;
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            margin: 10px 0; 
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+
+        .hero-text { 
+            font-size: 1.25rem; 
+            color: var(--app-grey-text); 
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+
+        .btn-playstore {
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-playstore:hover { transform: scale(1.08); }
+        .btn-playstore img { height: 70px; }
+
+        /* Características */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+
+        .feature-card {
+            background: var(--app-card-bg);
+            padding: 35px;
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--app-accent-red);
+            transform: translateY(-5px);
+        }
+
+        .feature-card i { 
+            font-size: 2.5rem; 
+            color: var(--app-accent-red); 
+            margin-bottom: 20px; 
+        }
+
+        .feature-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .feature-card p { color: var(--app-grey-text); line-height: 1.6; }
+
+        /* Galería */
+        .gallery {
+            padding: 80px 20px;
+            background-color: #0c0c0c;
+            text-align: center;
+        }
+
+        .gallery h2 { 
+            margin-bottom: 10px; 
+            font-size: 2.2rem; 
+        }
+        
+        .gallery p {
+            color: var(--app-grey-text);
+            margin-bottom: 50px;
+        }
+
+        .screenshot-container {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            padding: 20px 0 40px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--app-accent-red) transparent;
+        }
+
+        /* Estilo para navegadores Webkit (Chrome/Safari) */
+        .screenshot-container::-webkit-scrollbar { height: 6px; }
+        .screenshot-container::-webkit-scrollbar-thumb { background: var(--app-accent-red); border-radius: 10px; }
+
+        .screenshot-container img {
+            height: 520px;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            background: var(--app-bg-dark);
+            border-top: 1px solid var(--app-button-grey);
+        }
+
+        .instagram-link { 
+            color: var(--white); 
+            font-size: 2.2rem; 
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            transition: 0.3s;
+        }
+        
+        .instagram-link:hover {
+            color: var(--app-accent-red);
+            transform: rotate(-10deg);
+        }
+
+        .footer-info { 
+            color: var(--app-grey-text); 
+            font-size: 0.85rem; 
+            margin-top: 20px;
+        }
+
+        .dev-name {
+            color: var(--app-accent-red);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .screenshot-container img { height: 420px; }
+            header { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.webp" alt="Apunte de Domino Logo" class="logo-main">
+        <h1>Apunte de Domino</h1>
+        <p class="hero-text">Lleva el control de tus partidas con la elegancia y sencillez que el dominó merece.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.juanjacoboruizmedina.apuntededomino" target="_blank" class="btn-playstore">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/es-419_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-bolt"></i>
+            <h3>Simple e Inmediato</h3>
+            <p>Registra tus puntos de inmediato. Una interfaz diseñada para no interrumpir el flujo del juego.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-users-cog"></i>
+            <h3>Personalización Total</h3>
+            <p>Cambia el nombre de los jugadores y ajusta el objetivo de puntos (100, 200, 250) según tus reglas.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-backspace"></i>
+            <h3>¡Punto Anulado!</h3>
+            <p>¿Te equivocaste? Corrige errores fácilmente anulando registros con un solo toque, igual que en papel.</p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Experiencia Visual</h2>
+        <p>Diseñada con el modo oscuro para ahorrar batería y proteger tu vista durante las partidas nocturnas.</p>
+        <div class="screenshot-container">
+            <img src="imagen 1.webp" alt="Pantalla de inicio">
+            <img src="imagen 2.webp" alt="Registro de puntos">
+            <img src="imagen 3.webp" alt="Cambio de puntaje">
+            <img src="imagen 4.webp" alt="Interfaz fluida">
+            <img src="imagen 5.webp" alt="Personalización">
+            <img src="imagen 6.webp" alt="Puntos anulados">
+            <img src="imagen 7.webp" alt="Nombres de jugadores">
+            <img src="imagen 8.webp" alt="Final de partida">
+        </div>
+    </section>
+
+    <footer>
+        <p>Desarrollado con pasión por <br>
+           <a href="https://www.instagram.com/juanjacoboruiz/" class="dev-name" target="_blank">Juan Jacobo Ruiz Medina</a>
+        </p>
+        
+        <a href="https://www.instagram.com/juanjacoboruiz/" class="instagram-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+        
+        <div class="footer-info">
+            <p>© 2024 Apunte de Domino. Google Play y su logotipo son marcas de Google LLC.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
